@@ -1,0 +1,15 @@
+# Dependency directories
+node_modules/
+
+# Local Hardhat files
+cache/
+artifacts/
+
+# Environment files
+key.env
+
+# Ignore logs
+*.log
+
+# Ignore system files
+.DS_Store
