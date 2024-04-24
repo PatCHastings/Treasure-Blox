@@ -6,7 +6,7 @@ cache/
 artifacts/
 
 # Environment files
-key.env
+.env
 
 # Ignore logs
 *.log

@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network ropsten",
+    "clean": "hardhat clean"
   },
   "keywords": [],
   "author": "",
@@ -15,7 +18,7 @@
     "hardhat": "^2.22.3"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts": "^4.4.1",
     "dotenv": "^16.4.5"
   }
 }
