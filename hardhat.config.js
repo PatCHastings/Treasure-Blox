@@ -8,9 +8,9 @@ module.exports = {
     hardhat: {
       chainId: 31337
     },
-    ropsten: {
-      url: `https://ropsten.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
-      accounts: [`0x${process.env.ROPSTEN_PRIVATE_KEY}`]
+    sepolia: {
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
+      accounts: [`0x${process.env.PRIVATE_KEY}`]
     }
   },
   paths: {
