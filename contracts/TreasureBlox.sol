@@ -17,7 +17,7 @@ contract TreasureBlox is ERC20, Ownable, Pausable {
     event RewardPaid(address indexed user, uint256 reward);
 
 
-    constructor() ERC20("Treasure Blox", "TBX") {
+    constructor() ERC20("TreasureBlox", "TBX") {
         _mint(msg.sender, INITIAL_SUPPLY);
     }
 
