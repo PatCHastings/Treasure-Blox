@@ -64,8 +64,8 @@ function WalletConnect() {
 
   return (
     <div>
-      <button onClick={connectWallet}>
-        {account ? `Connected: ${account}` : 'Connect Wallet'}
+      <button className='connectWallet'  onClick={connectWallet}>
+        {account ? `Connected: ${account}` : 'Connect fucking Wallet'}
       </button>
       {account && <div>
         <p>Balance: {balance} ETH</p>

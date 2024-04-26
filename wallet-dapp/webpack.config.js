@@ -1,7 +1,8 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',  // path to the entry file
+  entry: './src/main.jsx',  // path to the entry file
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -9,7 +10,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -20,9 +21,18 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'index.html'  // Path to your index.html file
+    })
+  ],
   devServer: {
-    static: './dist',
-    open: true,  // Automatically open the browser
+    static: {
+        directory: path.join(__dirname, 'dist'),
+      },
+    compress: true,
+    port: 8080,
+    open: true // auto-opens a browser yo. 
   },
-  mode: 'development',  // Use 'production' for production builds
+  mode: 'development',  // switch to 'production' when necessary
 };
