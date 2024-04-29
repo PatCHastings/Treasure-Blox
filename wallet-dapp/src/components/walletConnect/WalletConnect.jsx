@@ -81,7 +81,9 @@ function WalletConnect() {
   return (
     <div>
       <button className="connectWallet" onClick={connectWallet}>
-        {account ? `Connected: ${account}` : "Connect Wallet"}
+        {account
+          ? `Connectedqwer: ${account.substring(0, 6)}...${account.slice(-4)}`
+          : "Connect Walletz"}
       </button>
       {account && (
         <div className="walletDetails">

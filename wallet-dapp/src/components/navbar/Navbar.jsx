@@ -14,13 +14,16 @@ function Navbar() {
     <nav className="navbar">
       <ul className="nav-links">
         <li>
-          <a href="#home">Home</a>
+          <a href="#welcome">Home</a>
         </li>
         <li>
-          <a href="#services">Services</a>
+          <a href="#mines">Mines</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#forge">Forge</a>
+        </li>
+        <li>
+          <a href="#market">Market</a>
         </li>
       </ul>
       <button onClick={toggleWalletHUD}>Connect Wallet</button>
