@@ -1,0 +1,49 @@
+@import "../../app.scss";
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: #fff;
+  
+    .nav-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+  
+      li {
+        margin-right: 20px;
+  
+        a {
+          color: white;
+          text-decoration: none;
+          transition: color 0.3s ease;
+  
+          &:hover {
+            color: #aaa;
+          }
+        }
+      }
+    }
+  
+    .wallet-connect {
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        color: #333;
+        background-color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #e2e2e2;
+        }
+      }
+    }
+  }
+  

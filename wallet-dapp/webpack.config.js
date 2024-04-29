@@ -19,6 +19,14 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader', // Injects CSS into the DOM via a <style> tag
+          'css-loader',   // Translates CSS into CommonJS modules
+          'sass-loader'   // Compiles Sass to CSS
+        ],
+      },
     ],
   },
   resolve: {

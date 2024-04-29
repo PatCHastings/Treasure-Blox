@@ -1,8 +1,8 @@
 // src/App.jsx
 import React from "react";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Welcome from "./components/Welcome";
-import WalletConnect from "./components/WalletConnect";
+import WalletConnect from "./components/walletConnect/WalletConnect";
 import Footer from "./components/Footer";
 
 function App() {
@@ -10,7 +10,6 @@ function App() {
     <div>
       <Navbar />
       <Welcome />
-      <WalletConnect />
       <Footer />
     </div>
   );
