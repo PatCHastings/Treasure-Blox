@@ -1,0 +1,37 @@
+
+@font-face {
+    font-family: 'BetterPixels';
+    src: url('/public/assets/fonts/BetterPixels.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'TimesNewPixel';
+    src: url('/public/assets/fonts/TimesNewPixel.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h2 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'TimesNewPixel', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; // High z-index to keep it above other content
+  }
+  
+  main {
+    padding-top: 60px; // Adjust based on navbar height to avoid overlap
+  }
+  
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }

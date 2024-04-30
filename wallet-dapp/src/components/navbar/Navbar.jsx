@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import WalletConnect from "../walletConnect/WalletConnect";
 import WalletHUD from "../hud/WalletHUD";
 import "./navbar.scss";
@@ -7,6 +8,7 @@ import "./navbar.scss";
 function Navbar() {
   const address = useSelector((state) => state.user.address);
   const [showHUD, setShowHUD] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   const toggleWalletHUD = () => {
     setShowHUD(!showHUD);
@@ -16,13 +18,13 @@ function Navbar() {
     <nav className="navbar">
       <ul className="nav-links">
         <li>
-          <a href="#welcome">Play</a>
+          <Link to="/welcome">Play</Link>
         </li>
         <li>
-          <a href="#mines">Mines</a>
+          <Link to="/mines">Mines</Link>
         </li>
         <li>
-          <a href="#forge">Forge</a>
+          <Link to="/forge">Forge</Link>
         </li>
       </ul>
       <button onClick={toggleWalletHUD}>

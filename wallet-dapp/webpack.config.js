@@ -43,7 +43,7 @@ module.exports = {
       },
     compress: true,
     port: 8080,
-    open: true // auto-opens a browser yo. 
+    open: false // auto-opens a browser yo. 
   },
   mode: 'development',  // switch to 'production' when necessary
 };
