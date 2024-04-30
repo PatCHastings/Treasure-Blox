@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./walletConnect.scss";
 import { ethers } from "ethers";
+import { useSelector, useDispatch } from "react-redux";
+import { setUserAddress, setUserBalance } from "../../app/userReducer";
 import TreasureBlox from "../../../../artifacts/contracts/TreasureBlox.sol/TreasureBlox.json";
 
 const contractAddress = "0xeEB58C5dab67D30F58Dd71506b942Aa61BA1a62d";
@@ -8,8 +10,10 @@ const contractABI = TreasureBlox.abi;
 
 function WalletConnect() {
   const [account, setAccount] = useState("");
-  const [ethBalance, setEthBalance] = useState("");
-  const [tbxBalance, setTbxBalance] = useState("");
+  const ethBalance = useSelector((state) => state.user.ethBalance);
+  const tbxBalance = useSelector((state) => state.user.tbxBalance);
+  const address = useSelector((state) => state.user.address);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     connectWalletOnLoad();
@@ -21,10 +25,13 @@ function WalletConnect() {
   const updateBalance = async (userAccount) => {
     try {
       const ethBalance = await provider.getBalance(userAccount);
-      setEthBalance(ethers.utils.formatEther(ethBalance));
-
       const tbxRawBalance = await contract.balanceOf(userAccount);
-      setTbxBalance(ethers.utils.formatUnits(tbxRawBalance, 18)); // assuming TBX is an 18 decimal token
+      dispatch(
+        setUserBalance({
+          ethBalance: ethers.utils.formatEther(ethBalance),
+          tbxBalance: ethers.utils.formatUnits(tbxRawBalance, 18),
+        })
+      );
     } catch (error) {
       console.error("Error updating balance:", error);
     }
@@ -37,7 +44,7 @@ function WalletConnect() {
           method: "eth_accounts",
         });
         if (accounts.length > 0) {
-          setAccount(accounts[0]);
+          dispatch(setUserAddress(accounts[0]));
           updateBalance(accounts[0]);
         }
       } catch (error) {
@@ -52,7 +59,7 @@ function WalletConnect() {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
-        setAccount(accounts[0]);
+        dispatch(setUserAddress(accounts[0]));
         updateBalance(accounts[0]);
       } catch (error) {
         console.error("Error on connecting MetaMask:", error);
@@ -69,9 +76,8 @@ function WalletConnect() {
           method: "wallet_requestPermissions",
           params: [{ eth_accounts: {} }],
         });
-        setAccount("");
-        setEthBalance("");
-        setTbxBalance("");
+        dispatch(setUserAddress(""));
+        dispatch(setUserBalance({ ethBalance: "", tbxBalance: "" }));
       } catch (error) {
         console.error("Error on disconnecting MetaMask:", error);
       }
@@ -81,9 +87,9 @@ function WalletConnect() {
   return (
     <div>
       <button className="connectWallet" onClick={connectWallet}>
-        {account ? `Connected: ${account}` : "Connect Wallet"}
+        {address ? `Connected: ${address}` : "Connect Wallet"}
       </button>
-      {account && (
+      {address && (
         <div className="walletDetails">
           <p>Balance: {ethBalance} ETH</p>
           <p>Balance: {tbxBalance} TBX</p>
