@@ -2,12 +2,14 @@
 
 .navbar {
     display: flex;
+    width: 100%;
+    left: 0;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
     background-color: #333;
     color: #fff;
-    transition: top 0.3s;
+    box-sizing: border-box;
     
   
     .nav-links {
@@ -21,6 +23,7 @@
   
         a {
           color: white;
+          font-size: 20px;
           text-decoration: none;
           transition: color 0.3s ease;
   
@@ -30,20 +33,38 @@
         }
       }
     }
+
+    .connect-wallet {
+        padding: 0.5rem 1rem;
+        font-size: 20px;
+        font-weight: bold;
+        color: #ffffff;
+        background: linear-gradient(to right, #19af46, #00abce);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.877);
+  
+        &:hover {
+          background-color: #6d6868;
+        
+      }
+    }
   
     .wallet-connect {
       button {
         padding: 0.5rem 1rem;
-        font-size: 1rem;
+        font-size: 20px;
         color: #333;
-        background-color: #fff;
+        background-color: #00fd4c;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s ease;
   
         &:hover {
-          background-color: #e2e2e2;
+          background-color: #6d6868;
         }
       }
     }

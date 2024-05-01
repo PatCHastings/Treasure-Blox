@@ -12,10 +12,8 @@
     font-style: normal;
 }
 
-h2 {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+* {
     font-family: 'TimesNewPixel', sans-serif;
 }
 
@@ -26,12 +24,8 @@ h2 {
     z-index: 1000; // High z-index to keep it above other content
   }
   
-  main {
-    padding-top: 60px; // Adjust based on navbar height to avoid overlap
-  }
-  
   .footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
   }

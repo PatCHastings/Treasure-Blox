@@ -13,8 +13,8 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div>
-          <Navbar />
+        <Navbar />
+        <div className="main-container">
           <Routes>
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/mines" element={<Mines />} />
@@ -22,8 +22,11 @@ function App() {
             {/* Add additional routes here */}
           </Routes>
         </div>
+
+        <div className="footer">
+          <Footer />
+        </div>
       </Router>
-      <Footer />
     </Provider>
   );
 }

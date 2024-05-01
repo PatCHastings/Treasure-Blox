@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]',
   },
   module: {
     rules: [
@@ -27,6 +28,10 @@ module.exports = {
           'sass-loader'   // Compiles Sass to CSS
         ],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource', // Handles and emits files as separate files and exports the URL
+      },
     ],
   },
   resolve: {
@@ -38,6 +43,7 @@ module.exports = {
     })
   ],
   devServer: {
+    historyApiFallback: true,
     static: {
         directory: path.join(__dirname, 'dist'),
       },

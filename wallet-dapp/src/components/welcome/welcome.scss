@@ -1,6 +1,69 @@
-h2 {
-    margin: 20;
-    padding: 20;
-    box-sizing: border-box;
-    font-family: 'BetterPixels', Times;
-}
+
+
+.welcome-container {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: url('../../../public/assets/images/EtherMine-start.webp') no-repeat center center;
+  
+    .logo-container {
+      margin-top: 100px;
+  
+      .token-logo {
+        max-width: 150px; // Adjust size as necessary
+        height: auto;
+      }
+    }
+  
+    .content-section {
+      padding: 20px;
+  
+      h1 {
+        color: rgb(255, 255, 255);
+        margin-top: 20px;
+        font-size: 80px;
+        text-shadow: black 3px 3px 3px;
+      }
+      h2 {
+        color: rgb(255, 255, 255);
+        margin-top: 20px;
+        font-size: 40px;
+        text-shadow: black 3px 3px 3px;}
+  
+      p {
+        color: rgb(255, 255, 255);
+        margin-bottom: 20px;
+        font-size: 25px;
+        text-shadow: black 1px 2px 2px;
+        font-weight: 500;
+      }
+  
+      .about-section, .how-to-play, .announcements, .community-links {
+        margin-top: 20px;
+  
+        h2 {
+          color: #2fc955; // Example color
+            font-size: 30px;
+        }
+        
+        p, ul {
+          margin-top: 10px;
+          text-align: left;
+          padding-left: 20px; // For alignment and better readability
+        }
+  
+        a {
+          color: #0077cc; // Example link color
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

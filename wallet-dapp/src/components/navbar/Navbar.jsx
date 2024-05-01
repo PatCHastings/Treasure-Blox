@@ -27,7 +27,7 @@ function Navbar() {
           <Link to="/forge">Forge</Link>
         </li>
       </ul>
-      <button onClick={toggleWalletHUD}>
+      <button className="connect-wallet" onClick={toggleWalletHUD}>
         {address ? "Wallet Connected" : "Connect Wallet"}
       </button>
       <WalletHUD isVisible={showHUD} closeHUD={() => setShowHUD(false)}>

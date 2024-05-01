@@ -1,0 +1,22 @@
+    // src/components/Footer/footer.scss
+.footer {
+    width: 100%;
+    padding: 10px 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+
+        &:hover {
+            color: #ccc;
+        }
+    }
+}
