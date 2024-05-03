@@ -1,7 +1,7 @@
 import Web3 from 'web3';
 import TreasureBlox from '../../artifacts/contracts/TreasureBlox.sol/TreasureBlox.json';
 
-const contractAddress = '0xeEB58C5dab67D30F58Dd71506b942Aa61BA1a62d'; // TreasureBlox contract address
+const contractAddress = '0x10942E5D1bcBF444b8712d6D5bcA1b2Ecd29Cbc6'; // TreasureBlox contract address
 const contractABI = TreasureBlox.abi; // ABI extraction from the JSON file
 
 // Connect to the Ethereum network

@@ -680,11 +680,12 @@ contract ERC20 is Context, IERC20, IERC20Metadata {
 // Original license: SPDX_License_Identifier: MIT
 pragma solidity ^0.8.20;
 contract TreasureBlox is ERC20, Ownable, Pausable {
-    uint256 public constant INITIAL_SUPPLY = 100000000 * (10**18); // 100 million tokens
+    uint256 public constant INITIAL_SUPPLY = 100000000 * (10**18); 
     mapping(address => uint256) private _stakes;
     mapping(address => uint256) private _rewards;
     mapping(address => bool) private isStakeholder;
-    address[] private _stakeholders;  // Ensure this is declared if used
+    mapping(address => uint256) private stakeholderIndex; 
+    address[] private _stakeholders;  
 
     event Staked(address indexed user, uint256 amount);
     event Unstaked(address indexed user, uint256 amount);
@@ -720,21 +721,20 @@ contract TreasureBlox is ERC20, Ownable, Pausable {
     function addStakeholder(address stakeholder) private {
         if (!isStakeholder[stakeholder]) {
             isStakeholder[stakeholder] = true;
-            _stakeholders.push(stakeholder);  // Confirm push is correct here
+            _stakeholders.push(stakeholder);
+            stakeholderIndex[stakeholder] = _stakeholders.length - 1;
         }
     }
 
     function removeStakeholder(address stakeholder) private {
-        if (isStakeholder[stakeholder]) {
+        if (isStakeholder[stakeholder] && _stakes[stakeholder] == 0) {
             isStakeholder[stakeholder] = false;
-            // Proper removal from an array in Solidity can be tricky and expensive
-            for (uint256 i = 0; i < _stakeholders.length; i++) {
-                if (_stakeholders[i] == stakeholder) {
-                    _stakeholders[i] = _stakeholders[_stakeholders.length - 1];
-                    _stakeholders.pop();
-                    break;
-                }
-            }
+            uint256 index = stakeholderIndex[stakeholder];
+            address lastStakeholder = _stakeholders[_stakeholders.length - 1];
+            _stakeholders[index] = lastStakeholder; 
+            stakeholderIndex[lastStakeholder] = index; 
+            _stakeholders.pop(); 
+            delete stakeholderIndex[stakeholder]; 
         }
     }
 
@@ -751,7 +751,7 @@ contract TreasureBlox is ERC20, Ownable, Pausable {
 
     function calculateReward(address stakeholder) public view returns (uint256) {
         uint256 stakeAmount = _stakes[stakeholder];
-        return stakeAmount / 100;  // 1% reward
+        return stakeAmount / 100;
     }
 
     function pause() public onlyOwner {

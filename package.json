@@ -13,10 +13,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.6",
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "css-loader": "^7.1.1",
     "ethers": "^5.7.2",
     "hardhat": "^2.22.3",
+    "hardhat-verify": "^1.0.0",
+    "mocha": "^10.4.0",
     "sass": "^1.75.0",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0"

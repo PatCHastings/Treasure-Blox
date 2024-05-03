@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setUserAddress, setUserBalance } from "../../app/userReducer";
 import TreasureBlox from "../../../../artifacts/contracts/TreasureBlox.sol/TreasureBlox.json";
 
-const contractAddress = "0xeEB58C5dab67D30F58Dd71506b942Aa61BA1a62d";
+const contractAddress = "0x10942E5D1bcBF444b8712d6D5bcA1b2Ecd29Cbc6";
 const contractABI = TreasureBlox.abi;
 
 function WalletConnect() {
